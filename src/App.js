@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import MainLayout from './components/MainLayout';
+import CartLayout from './components/CartLayout';
+import HomePage from './HomePage'; // This is where Cards will be shown
+import Cart from './components/Cart';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<HomePage />} /> {/* Main page content */}
+      </Route>
+      <Route path="/cart" element={<CartLayout />} /> {/* Cart page content */}
+    </Routes>
   );
 }
 
